@@ -1,41 +1,35 @@
 import datetime
 from typing import List
-
-
-class User:
-
-    def __init__(
-            self,
-            user_id: str,
-            email: str,
-            birthday: datetime.date
-    ):
-        self.user_id = user_id
-        self.email = email
-        self.birthday = birthday
-        self.event_requests = []
-
-    def accept_event(self):
-        pass
+from LLDesign.google_calendar.user import User
+from LLDesign.google_calendar.common import EventColor
 
 
 class Event:
 
     def __init__(
             self,
+            id: str,
             start: datetime.datetime,
             end: datetime.datetime,
             owner: User,
             location: str,
             invitees: List[User],
-            title: str
+            title: str,
+            description: str,
+            color: EventColor,
+            all_day: bool,
+            recurrence
     ):
+        self.id = id
         self.start = start
         self.end = end
         self.owner = owner
         self.location = location
         self.invitees = invitees
         self.title = title
+        self.all_day = all_day
+        self.description = description
+        self.color = color
 
     @classmethod
     def Meeting(cls, start: datetime.datetime, end: datetime.datetime):
@@ -58,22 +52,8 @@ class Event:
         return None
 
 
-class Calendar:
+class EventRequest:
 
-    def __init__(self, user: User):
+    def __init__(self, event: Event, user: User):
+        self.event = event
         self.user = user
-        self.events = []
-
-    def get_events(self):
-        return self.events
-
-    def add_event(self, event: Event):
-        # Validate Event Parameters
-        self.events.append(event)
-
-
-class CalendarManager:
-
-    @classmethod
-    def get_calendar(cls, user: User):
-        return Calendar(user=user)
