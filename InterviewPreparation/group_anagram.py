@@ -16,3 +16,4 @@ class Solution:
 
 print(Solution().groupAnagrams(["a"]))
 print("Hello")
+print("h3")
