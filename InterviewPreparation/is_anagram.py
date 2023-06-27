@@ -8,3 +8,4 @@ class Solution:
         return True
 
 print(Solution().isAnagram("aacc", "ccac"))
+print("solution")
