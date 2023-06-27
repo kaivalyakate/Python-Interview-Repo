@@ -9,3 +9,4 @@ class Solution:
 
 print(Solution().isAnagram("aacc", "ccac"))
 print("Hello world")
+print("Hello Solution")
