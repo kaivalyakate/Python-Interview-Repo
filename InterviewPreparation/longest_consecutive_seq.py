@@ -24,3 +24,5 @@ class Solution:
 print(Solution.longestConsecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
 print("SOlution")
 print("Solution1")
+print("hello")
+print("2pac")
